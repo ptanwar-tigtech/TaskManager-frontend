@@ -1,16 +1,19 @@
-import Header from "./components/Header";
-import TaskList from "./components/TaskList";
-import BasicInput from "./components/InputTypes";
-import RegistrationForm from "./components/RegistrationForm";
+import { Routes, Route } from "react-router-dom";
+
+import Dashboard from "./pages/Dashboard";
+import Tasks from "./pages/Tasks";
+import TaskDetails from "./pages/TaskDetails";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <div>
-      <Header />
-      {/* <TaskList /> */}
-      <RegistrationForm />
-      <BasicInput/>
-    </div>
+    <Routes>
+      <Route path="/" element={<Dashboard />}>
+        <Route path="tasks" element={<Tasks />} />
+        <Route path="tasks/:id" element={<TaskDetails />} />
+        <Route path="profile" element={<Profile />} />
+      </Route>
+    </Routes>
   );
 }
 
